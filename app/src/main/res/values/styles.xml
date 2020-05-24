@@ -1,0 +1,66 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- main menu button style -->
+    <style name="main_menu_button_style">
+        <item name="android:layout_width">148dp</item>
+        <item name="android:layout_height">96dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:textSize">13.5sp</item>
+        <item name="android:textColor">#3e3e3e</item>
+        <item name="android:lineSpacingExtra">12.5sp</item>
+        <item name="android:background">@drawable/button_color_selector1</item>
+    </style>
+
+    <!-- Base application theme. -->
+
+    <style name="MyAlertDialogStyle" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="android:textColor">@color/customColorPrimary</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:background">@color/sub_main_menu12_bg</item>
+    </style>
+
+    <style name="DialogBase">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="CustomAlertDialog" parent="DialogBase">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="CalendarViewTheme" parent="AppTheme">
+        <item name="colorAccent">#ff4d4d</item>
+        <item name="android:fontFamily">@font/nanumsquarebold</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">#ff4d4d</item>
+    </style>
+</resources>

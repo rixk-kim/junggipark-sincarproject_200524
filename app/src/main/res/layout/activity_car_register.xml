@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarRegisterActivity">
+
+    <!-- ActionBar 영역 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/card_reg_include"
+        tools:ignore="MissingConstraints">
+
+        <!-- ActionBar : Back / Title / Info -->
+        <ImageView
+            android:id="@+id/car_reg_btnPrev"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:contentDescription="@string/actionbar_prev_icon_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/prev_image_selector" />
+
+        <TextView
+            android:id="@+id/myinfo_title_activity"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="@string/title_car_register"
+            android:textColor="#3e3e3e"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/car_reg_btnPrev"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/card_reg_layout_1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_reg_include">
+
+        <LinearLayout
+            android:id="@+id/car_company"
+            android:layout_width="296dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/button_color_selector1"
+            android:elevation="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_activity">
+
+
+
+            <TextView
+                android:id="@+id/car_select_colume1"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_width="296dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="55dp"
+                android:gravity="left|center_vertical|center_horizontal"
+                android:background="@null"
+                android:ems="10"
+                android:hint="제조사"
+                android:textColor="#3E3E3E"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:id="@+id/btnNext1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/customColorPrimary1"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:src="@drawable/arrow_right_red" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/car_name"
+            android:layout_width="296dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/button_color_selector1"
+            android:elevation="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_activity">
+
+
+
+            <TextView
+                android:id="@+id/car_select_colume2"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_width="296dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="55dp"
+                android:gravity="left|center_vertical|center_horizontal"
+                android:background="@null"
+                android:ems="10"
+                android:hint="모델명"
+                android:textColor="#3E3E3E"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:id="@+id/btnNext2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="32dp"
+                android:contentDescription="@string/actionbar_prev_icon_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/customColorPrimary1"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:src="@drawable/arrow_right_red" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/car_number"
+            android:layout_width="296dp"
+            android:layout_height="108dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/layout_background"
+            android:elevation="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_activity">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="left|center_vertical|center_horizontal"
+                android:background="@null"
+                android:ems="10"
+                android:hint="차량 번호"
+                android:textColor="#3E3E3E"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/car_select_colume3"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:layout_width="167dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center|center_vertical|center_horizontal"
+                    android:background="@drawable/edt_underline"
+                    android:ems="10"
+                    android:hint="12 가 1234"
+                    android:ellipsize="end"
+                    android:textColor="#3E3E3E"
+                    android:textSize="15sp"
+                    android:inputType="text"
+                    android:imeOptions="actionDone" />
+<!--
+                <EditText
+                    android:id="@+id/car_select_colume4"
+                    android:layout_width="38dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center|center_vertical|center_horizontal"
+                    android:background="@drawable/edt_underline"
+                    android:ems="10"
+                    android:hint="가"
+                    android:textColor="#3E3E3E"
+                    android:textSize="15sp"
+                    android:inputType="text"
+                    android:nextFocusDown="@+id/car_select_colume5"
+                    android:imeOptions="actionNext" />
+
+                <EditText
+                    android:id="@+id/car_select_colume5"
+                    android:layout_width="62dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center|center_vertical|center_horizontal"
+                    android:background="@drawable/edt_underline"
+                    android:ems="10"
+                    android:hint="1234"
+                    android:textColor="#3E3E3E"
+                    android:textSize="15sp"
+                    android:inputType="number"
+                    android:imeOptions="actionDone" />
+-->
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:gravity="center|center_horizontal|center_vertical">
+
+            <Button
+                android:id="@+id/car_reg_btn"
+                android:fontFamily="@font/nanumsquarebold"
+                android:layout_width="296dp"
+                android:layout_height="52dp"
+                android:layout_gravity="bottom|center"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/default_button_type_1"
+                android:shadowColor="#C4C4C4"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="7"
+                android:text="@string/btn_confirm"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
