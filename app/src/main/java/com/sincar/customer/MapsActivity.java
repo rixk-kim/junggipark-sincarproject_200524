@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -62,7 +64,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements
-        View.OnClickListener,OnDateNTimeSetListener, MapView.MapViewEventListener, MapView.OpenAPIKeyAuthenticationResultListener {
+        View.OnClickListener,OnDateNTimeSetListener, MapView.MapViewEventListener, MapView.OpenAPIKeyAuthenticationResultListener, MapView.POIItemEventListener {
 
     /*
      * GPS, 일출,일몰, 위도, 경도, 현재 주소
@@ -102,10 +104,11 @@ public class MapsActivity extends FragmentActivity implements
     int rCode = 0;
     MapView mapView;
     String appkey = MapApiConst.KAKAO_MAPS_ANDROID_APP_API_KEY;
-    RelativeLayout map;
     ConstraintLayout constraintLayout;
     ConstraintSet constraintSet;
     Point pt;
+    RelativeLayout reMap;
+    //MapPOIItem marker;
     ///sy
 
     @Override
@@ -137,16 +140,13 @@ public class MapsActivity extends FragmentActivity implements
         // 화면 초기화
         init();
 
-        onMapViewInitialized(mapView);
-        onMapViewMoveFinished(mapView, mapView.getMapCenterPoint());
-
     }
 
     /**
      * 화면 초기화
      */
+
     private void init() {
-        map = (RelativeLayout)findViewById(R.id.map);
         constraintLayout = (ConstraintLayout) findViewById(R.id.maps_constraintlayout);
         constraintSet = new ConstraintSet();
         constraintSet.clone(constraintLayout);
@@ -186,18 +186,17 @@ public class MapsActivity extends FragmentActivity implements
         next_Layout = (ConstraintLayout) findViewById(R.id.next_layout);
         framelayout_maps_rentCar = (FrameLayout) findViewById(R.id.framelayout_maps_rentcar);
 
-        mapView = new MapView(this);
-        mapView.setMapViewEventListener(this);
+        reMap = (RelativeLayout)findViewById(R.id.kMap);
 
-
-
-//        RelativeLayout.LayoutParams mapParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-//        mapParams.height = pt.y - (pt.y / 640 * 275);
-//        map.setLayoutParams(mapParams);
-//        layoutParams.height = pt.y - 278 - 10;
-//        mapViewContainer.setLayoutParams(layoutParams);
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map);
-        mapViewContainer.addView(mapView);
+        //마커 이용
+//        mapView.setPOIItemEventListener(this);
+//
+//        marker = new MapPOIItem();
+//        marker.setItemName("Default Marker");
+//        marker.setTag(0);
+//        marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+//        marker.setMapPoint(mapView.getMapCenterPoint());
+//        mapView.addPOIItem(marker);
 
         if ("steam".equals(main_path)) {
             mbtnReserveAddress.setOnClickListener(this);
@@ -206,11 +205,15 @@ public class MapsActivity extends FragmentActivity implements
             currentTextView = findViewById(R.id.current_address);
             reserve_date = findViewById(R.id.reserve_date);
             reserve_date.setText(reserve_month + "/ " + reserve_day + " (" + weekDay + ")"); //9/15 (화)
+            constraintSet.constrainHeight(R.id.kMap, pt.y - (int)((float)pt.y / 640 * 180));
+            constraintSet.applyTo(constraintLayout);
             constraintSet.connect(btnCurrent.getId(), constraintSet.BOTTOM, mbtnReserveAddress.getId(), ConstraintSet.TOP);
             constraintSet.applyTo(constraintLayout);
             framelayout_maps_rentCar.setVisibility(View.GONE);
 
         } else { //sy
+            constraintSet.constrainHeight(R.id.kMap, pt.y - (int)((float)pt.y / 640 * 210));
+            constraintSet.applyTo(constraintLayout);
             constraintSet.connect(btnCurrent.getId(), constraintSet.BOTTOM, framelayout_maps_rentCar.getId(), ConstraintSet.TOP);
             constraintSet.applyTo(constraintLayout);
             mConstraintLayout.setVisibility(View.GONE);
@@ -223,6 +226,11 @@ public class MapsActivity extends FragmentActivity implements
             maps_rent_mainfrag = new Maps_rent_mainfrag();
             replaceFragment(1);
         }
+
+        mapView = new MapView(this);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.kMap);
+        mapViewContainer.addView(mapView);
+        mapView.setMapViewEventListener(this);
 
         ///sy
         getAddress();
@@ -552,6 +560,7 @@ public class MapsActivity extends FragmentActivity implements
     @Override
     public void onMapViewInitialized(@NotNull MapView mapView) {
         mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(my_latitude, my_longitude), true);
+
     }
 
     @Override
@@ -593,17 +602,39 @@ public class MapsActivity extends FragmentActivity implements
     public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
         latitude = mapPoint.getMapPointGeoCoord().latitude;
         longitude = mapPoint.getMapPointGeoCoord().longitude;
-
         if(mapView.getWindowVisibility() == View.VISIBLE) {
             getAddress();
             if (((Maps_rent_mainfrag) getSupportFragmentManager().findFragmentById(R.id.framelayout_maps_rentcar)) != null)
                 ((Maps_rent_mainfrag) getSupportFragmentManager().findFragmentById(R.id.framelayout_maps_rentcar)).AddressChange();
         }
+        //marker.setMapPoint(mapView.getMapCenterPoint());
     }
 
     //키 인증 결과 이벤트 오버라이드
     @Override
     public void onDaumMapOpenAPIKeyAuthenticationResult(MapView mapView, int i, String s) {
+
+    }
+
+    //마커 오버라이드
+
+    @Override
+    public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
+
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
+
+    }
+
+    @Override
+    public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {
 
     }
 }

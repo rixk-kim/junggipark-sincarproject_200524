@@ -11,12 +11,13 @@
     <!-- kakao map layout -->
 
     <RelativeLayout
-        android:id="@+id/map"
+        android:id="@+id/kMap"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context = ".MapsActivity">
 
     </RelativeLayout>
 
@@ -29,7 +30,7 @@
         android:contentDescription="@string/current_icon_desc_str"
         android:src="@drawable/group_3_copy"
         app:layout_constraintBottom_toTopOf="@+id/framelayout_maps_rentcar"
-        app:layout_constraintEnd_toEndOf="@+id/map" />
+        app:layout_constraintEnd_toEndOf="@+id/kMap" />
 
     <!-- TODO - group_5 이미지 이름이 같은 파일 3개 존재(main group-5, map group-5 두개) -->
 
@@ -52,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintBottom_toBottomOf="@+id/kMap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
