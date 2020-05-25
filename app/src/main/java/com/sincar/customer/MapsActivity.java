@@ -185,11 +185,11 @@ public class MapsActivity extends FragmentActivity implements
 
         mapView = new MapView(this);
         mapView.setMapViewEventListener(this);
-//        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map);
 //        ViewGroup.LayoutParams layoutParams = mapViewContainer.getLayoutParams();
 //        layoutParams.height = pt.y - 278 + 10;
 //        mapViewContainer.setLayoutParams(layoutParams);
-//        mapViewContainer.addView(mapView);
+        mapViewContainer.addView(mapView);
 
         if ("steam".equals(main_path)) {
             mbtnReserveAddress.setOnClickListener(this);
