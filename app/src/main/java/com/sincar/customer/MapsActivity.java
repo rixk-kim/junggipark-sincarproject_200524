@@ -23,6 +23,7 @@ import android.text.format.Time;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -228,9 +229,37 @@ public class MapsActivity extends FragmentActivity implements
         }
 
         mapView = new MapView(this);
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.kMap);
+        final ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.kMap);
         mapViewContainer.addView(mapView);
         mapView.setMapViewEventListener(this);
+
+        //터치 액션이 맵뷰의 영역 밖으로 나가면 액션 중지
+        mapView.setOnTouchListener(new View.OnTouchListener() {
+            boolean isAction_cancel = false;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_MOVE:
+                        float x, y;
+                        x = event.getX();
+                        y = event.getY();
+                        if (!(x > 0 && x < v.getWidth() && y > 0 && y < v.getHeight())) {
+                            event.setAction(MotionEvent.ACTION_CANCEL);
+                            isAction_cancel = true;
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        if (isAction_cancel)
+                            event.setAction(MotionEvent.ACTION_CANCEL);
+                        isAction_cancel = false;
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
 
         ///sy
         getAddress();
@@ -273,6 +302,7 @@ public class MapsActivity extends FragmentActivity implements
                 break;
         }
     }
+
     ///sy
 
     @Override
