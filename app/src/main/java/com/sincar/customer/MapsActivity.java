@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -101,6 +102,7 @@ public class MapsActivity extends FragmentActivity implements
     int rCode = 0;
     MapView mapView;
     String appkey = MapApiConst.KAKAO_MAPS_ANDROID_APP_API_KEY;
+    RelativeLayout map;
     ConstraintLayout constraintLayout;
     ConstraintSet constraintSet;
     Point pt;
@@ -144,6 +146,7 @@ public class MapsActivity extends FragmentActivity implements
      * 화면 초기화
      */
     private void init() {
+        map = (RelativeLayout)findViewById(R.id.map);
         constraintLayout = (ConstraintLayout) findViewById(R.id.maps_constraintlayout);
         constraintSet = new ConstraintSet();
         constraintSet.clone(constraintLayout);
@@ -185,10 +188,15 @@ public class MapsActivity extends FragmentActivity implements
 
         mapView = new MapView(this);
         mapView.setMapViewEventListener(this);
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map);
-//        ViewGroup.LayoutParams layoutParams = mapViewContainer.getLayoutParams();
-//        layoutParams.height = pt.y - 278 + 10;
+
+
+
+//        RelativeLayout.LayoutParams mapParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+//        mapParams.height = pt.y - (pt.y / 640 * 275);
+//        map.setLayoutParams(mapParams);
+//        layoutParams.height = pt.y - 278 - 10;
 //        mapViewContainer.setLayoutParams(layoutParams);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map);
         mapViewContainer.addView(mapView);
 
         if ("steam".equals(main_path)) {
