@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfileSettingsDetailActivity">
+
+    <!-- ActionBar 영역 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/include"
+        tools:ignore="MissingConstraints">
+
+        <!-- ActionBar : Back / Title / Info -->
+        <LinearLayout
+            android:id="@+id/myinfo_profile_btnPrev_layout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:gravity="center|center_horizontal|center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/myinfo_profile_btnPrev"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/actionbar_prev_icon_description"
+                android:src="@drawable/prev_image_selector" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/myinfo_title_activity"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="@string/title_profile"
+            android:textColor="#3e3e3e"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/myinfo_profile_btnPrev_layout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 이름.번호 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myinfo_layout_1"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/include">
+
+        <TextView
+            android:id="@+id/myinfo_type_1"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:text="@string/title_profile"
+            android:textColor="#803e3e3e"
+            android:textSize="14sp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 프로필 -->
+    <LinearLayout
+        android:id="@+id/friend_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myinfo_layout_1">
+
+        <LinearLayout
+            android:id="@+id/myinfo_linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/myinfo_menu_1"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/myinfo_user_title"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/myinfo_detail_name_title"
+                    android:textSize="15sp"
+                    android:textColor="#3e3e3e"
+                    android:letterSpacing="0.05"/>
+
+                <TextView
+                    android:id="@+id/myinfo_user_name"
+                    android:fontFamily="@font/nanumsquareregular"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="김태현"
+                    android:textSize="13sp"
+                    android:textColor="#993e3e3e"
+                    android:letterSpacing="0.05" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1a3e3e3e"/>
+
+        <LinearLayout
+            android:id="@+id/myinfo_linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/myinfo_menu_2"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/myinfo_mobile_title"
+                        android:fontFamily="@font/nanumsquareregular"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/myinfo_detail_mobile_title"
+                        android:textSize="15sp"
+                        android:textColor="#3e3e3e"
+                        android:letterSpacing="0.05"/>
+
+                    <TextView
+                        android:id="@+id/user_mobile_number"
+                        android:fontFamily="@font/nanumsquareregular"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="010.6778.1916"
+                        android:textSize="13sp"
+                        android:textColor="#b33e3e3e"
+                        android:letterSpacing="0.05" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1a3e3e3e" />
+
+        <LinearLayout
+            android:id="@+id/myinfo_linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/myinfo_menu_3"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:fontFamily="@font/nanumsquareregular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:letterSpacing="0.05"
+                        android:text="@string/myinfo_detail_password_title"
+                        android:textColor="#3e3e3e"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:fontFamily="@font/nanumsquareregular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:letterSpacing="0.05"
+                        android:text="@string/myinfo_detail_password_content"
+                        android:textColor="#b33e3e3e"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_gravity="right"
+                    android:gravity="right|center_vertical|center_horizontal">
+
+                    <TextView
+                        android:id="@+id/myinfo_btnNext"
+                        android:fontFamily="@font/nanumsquareregular"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right|clip_horizontal|center_vertical"
+                        android:text="변경"
+                        android:textColor="#ff4d4d"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1a3e3e3e" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

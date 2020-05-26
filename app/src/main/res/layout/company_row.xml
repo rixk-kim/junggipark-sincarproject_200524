@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@drawable/layout_background_2"
+android:orientation="vertical" >
+
+<TextView
+    android:id="@+id/textCompanyView1"
+    android:fontFamily="@font/nanumsquareregular"
+    android:layout_width="94dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center|center_vertical|center_horizontal"
+    android:gravity="center|center_vertical|center_horizontal"
+    android:textColor="@color/customColorPrimary"
+    android:textSize="14sp"
+    />
+
+</LinearLayout>
+

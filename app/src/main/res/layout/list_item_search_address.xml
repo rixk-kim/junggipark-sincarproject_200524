@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnAddressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/btnAddressIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical|center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/goto_map_icon"
+                android:contentDescription="@string/address_search_icon_desc" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/address_title"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            android:text="@string/address_search_dummy1"
+            android:textColor="#3e3e3e"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAddressIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="송파구청" />
+
+        <TextView
+            android:id="@+id/address_desc"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/address_search_dummy2"
+            android:textColor="#803e3e3e"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAddressIcon"
+            tools:text="송파구 석촌동 729" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity">
+
+    <!-- ActionBar 영역 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/setting_include"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal">
+
+        <!-- ActionBar : Back / Title / Info -->
+        <LinearLayout
+            android:id="@+id/setting_btnPrev_layout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:gravity="center|center_horizontal|center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/setting_btnPrev"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/actionbar_prev_icon_description"
+                android:src="@drawable/prev_image_selector"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:gravity="center|center_horizontal|center_vertical"
+                 />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/myinfo_title_activity"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="@string/title_setting"
+            android:textColor="#3e3e3e"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/setting_btnPrev_layout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/settings_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+        <LinearLayout
+            android:id="@+id/myinfo_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="28dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/setting_include"
+            tools:layout_editor_absoluteX="0dp">
+
+            <LinearLayout
+                android:id="@+id/recom_layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/myinfo_linearLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="6dp"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/myinfo_user_title"
+                            android:fontFamily="@font/nanumsquarebold"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:letterSpacing="0.05"
+                            android:text="서비스 정보"
+                            android:textColor="#ff4b5b"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/myinfo_linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_height="19dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:letterSpacing="0.05"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            android:text="현재 버전" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/setting_version_info"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_width="match_parent"
+                            android:layout_height="19dp"
+                            android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:letterSpacing="0.05"
+                            android:textColor="#993e3e3e"
+                            android:textSize="13sp"
+                            android:text="v.1.0.0" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e6e6e6" />
+
+                <LinearLayout
+                    android:id="@+id/myinfo_linearLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginLeft="6dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/setting_clause"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_width="match_parent"
+                            android:layout_height="19dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="약관 및 정책"
+                            android:textColor="@drawable/text_color_selector"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e6e6e6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquarebold"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="알림설정"
+                            android:textColor="#ff4b5b"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/myinfo_linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal|center_vertical"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_height="19dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:layout_marginTop="8dp"
+                            android:letterSpacing="0.05"
+                            android:text="정보성 알림"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_height="17dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="예약완료, 기사매칭 등"
+                            android:textColor="#993E3E3E"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal|center_vertical"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <Switch
+                            android:id="@+id/infoSwitch1"
+                            android:layout_width="50dp"
+                            android:layout_height="24dp"
+                            android:switchMinWidth="50dp"
+                            android:layout_gravity="right|center_horizontal|center_vertical"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e6e6e6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal|center_vertical"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_height="19dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:layout_marginTop="8dp"
+                            android:letterSpacing="0.05"
+                            android:text="마케팅 알림"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_height="17dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_gravity="left|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="쿠폰, 이벤트 등"
+                            android:textColor="#993E3E3E"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal|center_vertical"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <Switch
+                            android:id="@+id/infoSwitch2"
+                            android:layout_width="50dp"
+                            android:layout_height="24dp"
+                            android:switchMinWidth="50dp"
+                            android:layout_gravity="right|center_horizontal|center_vertical"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e6e6e6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="19dp"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nanumsquarebold"
+                            android:layout_height="19dp"
+                            android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="계정"
+                            android:textColor="#ff4b5b"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="19dp"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/member_logout"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_width="match_parent"
+                            android:layout_height="19dp"
+                            android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="로그아웃"
+                            android:textColor="@drawable/text_color_selector"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e6e6e6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="19dp"
+                        android:layout_gravity="left|center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/member_withdrawal"
+                            android:fontFamily="@font/nanumsquareregular"
+                            android:layout_width="match_parent"
+                            android:layout_height="19dp"
+                            android:layout_gravity="center|center_horizontal|center_vertical"
+                            android:gravity="left"
+                            android:letterSpacing="0.05"
+                            android:text="회원탈퇴"
+                            android:textColor="@drawable/text_color_selector"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e6e6e6" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

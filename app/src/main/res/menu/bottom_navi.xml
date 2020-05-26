@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bottom_home"
+        android:enabled="true"
+        android:icon="@drawable/home_bottomnavi"
+        android:title="홈"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/bottom_use_history"
+        android:enabled="true"
+        android:icon="@drawable/transaction_bottomnavi"
+        android:title="이용내역"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/bottom_myinfo"
+        android:enabled="true"
+        android:icon="@drawable/user_bottomnavi"
+        android:title="내정보"
+        app:showAsAction="always"/>
+
+</menu>

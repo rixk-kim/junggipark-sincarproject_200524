@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoticeActivity">
+
+    <!-- ActionBar 영역 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/notice_include"
+        tools:ignore="MissingConstraints">
+
+        <!-- ActionBar : Back / Title / Info -->
+        <LinearLayout
+            android:id="@+id/notice_btnPrev_layout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:gravity="center|center_horizontal|center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/notice_btnPrev"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/actionbar_prev_icon_description"
+                android:src="@drawable/prev_image_selector" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/myinfo_title_activity"
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="@string/title_notice"
+            android:textColor="#3e3e3e"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/notice_btnPrev_layout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- 리스트 내용 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/noticeHistoryList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notice_include" />
+
+    <!-- 리스트가 없을때 -->
+    <LinearLayout
+        android:id="@+id/notice_list_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:fontFamily="@font/nanumsquareregular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="등록된 공지사항이 없습니다."
+            android:textSize="16sp"
+            android:textColor="#993e3e3e"
+            />
+
+        />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
